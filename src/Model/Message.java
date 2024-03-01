@@ -14,8 +14,8 @@ public class Message implements MessageInterface, Serializable {
     private NodeServer sender;
     private NodeServer receiver;
     private String dateTime;
-
     private String type;
+    private int controlBroadcast = 0;
 
     /**
      * Constructs a new Message object with the specified message, sender, receiver, and date/time.
@@ -119,5 +119,28 @@ public class Message implements MessageInterface, Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public int getControlBroadcast() {
+        return controlBroadcast;
+    }
+
+    public void setControlBroadcast(int controlBroadcast) {
+        this.controlBroadcast = controlBroadcast;
+    }
+
+    public void updateControlBroadcast() {
+        this.controlBroadcast++;
+    }
+    @Override
+    public String toString() {
+        return "Message{" +
+                "message='" + message + '\'' +
+                ", sender=" + sender +
+                ", receiver=" + receiver +
+                ", dateTime='" + dateTime + '\'' +
+                ", type='" + type + '\'' +
+                ", controlBroadcast=" + controlBroadcast +
+                '}';
     }
 }

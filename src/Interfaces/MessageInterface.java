@@ -13,4 +13,8 @@ public interface MessageInterface {
     void setReceiver(NodeServer receiver);
     void setDateTime(String dateTime);
     void setType(String type);
+    int getControlBroadcast();
+    void setControlBroadcast(int controlBroadcast);
+    void updateControlBroadcast();
+
 }

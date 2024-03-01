@@ -1,16 +1,18 @@
 package Interfaces;
 
-import java.net.Socket;
+import java.io.IOException;
 
 public interface ServerInterface extends Runnable{
 
     /**
      * Method to send a message to the next node.
-     * 
+     *
      * @param messageInterface the message to be sent
      * @return true if the message was sent successfully, false otherwise
      */
-    void sendMessage(MessageInterface messageInterface);
+    private void sendMessage(MessageInterface messageInterface) {
+
+    }
 
     /**
      * Method to verify if the message is for the current node.
@@ -26,11 +28,8 @@ public interface ServerInterface extends Runnable{
      * Method to receive a message from the previous node.
      *
      * @param messageInterface the message to be received
-     * @return the received message, or null if no message is received
      */
-    private MessageInterface receiveMessage(MessageInterface messageInterface) {
-        return null;
-    }
+    public void receiveMessage(MessageInterface messageInterface) throws IOException;
 
     /**
      * Method to start the server.

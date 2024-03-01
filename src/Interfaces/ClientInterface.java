@@ -1,5 +1,9 @@
 package Interfaces;
 
+import Model.NodeServer;
+
+import java.util.ArrayList;
+
 public interface ClientInterface {
 
     /**
@@ -11,13 +15,13 @@ public interface ClientInterface {
      * method to show the menu to the user
      * the options are: 1. Send a Unicast message, 2. Send a Broadcast message, 3, view log of messages, 4. Exit
      */
-    void showMenu();
+    MessageInterface Menu(ArrayList<String> sendMessagesLog, ArrayList<String> recivedMessagesLog);
 
-    void showReceivedMessage(MessageInterface messageInterface);
+    void showReceivedMessage(MessageInterface message);
 
-    void showSentMessage(String message);
+    void showSentMessage(MessageInterface message);
 
-    void showLog(MessageInterface[] log);
+    void showLog(ArrayList<String> log);
 
     void showError(String text);
 
