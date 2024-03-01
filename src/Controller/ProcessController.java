@@ -1,32 +1,27 @@
 package Controller;
 
+import Interfaces.MessageInterface;
+import Model.NodeServer;
 import Model.Server.ServerTCP;
-
-import java.io.IOException;
-import java.net.Socket;
 
 public class ProcessController {
 
-    private int serverPort;
-    private int clientPort;
+    private NodeServer server;
     private ServerTCP serverThread;
 
-    public ProcessController(int serverPort) {
-        this.serverPort = serverPort;
+    public ProcessController(NodeServer server, NodeServer nextNodeServer) {
+        this.server = server;
 
         //iniciar a thread do servidor
-        serverThread = new ServerTCP(serverPort);
+        serverThread = new ServerTCP(server, nextNodeServer);
         new Thread(serverThread).start();
 
-        System.out.println("jorge");
+
+
     }
 
-    public void run() {
-        try {
-            Socket socket = new Socket("localhost", serverPort);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void sendMessage(MessageInterface message) {
+        serverThread.sendMessage(message);
     }
 
 

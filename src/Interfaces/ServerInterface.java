@@ -10,7 +10,7 @@ public interface ServerInterface extends Runnable{
      * @param messageInterface the message to be sent
      * @return true if the message was sent successfully, false otherwise
      */
-    boolean sendMessage(MessageInterface messageInterface);
+    void sendMessage(MessageInterface messageInterface);
 
     /**
      * Method to verify if the message is for the current node.
@@ -36,11 +36,5 @@ public interface ServerInterface extends Runnable{
      * Method to start the server.
      */
     private void startServer() {
-        // TODO Auto-generated method stub
     }
-
-    /**
-     * method to connect to the client.
-     */
-    void connectToClient(Socket clientSocket);
 }

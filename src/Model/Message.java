@@ -11,9 +11,11 @@ public class Message implements MessageInterface, Serializable {
     
     private static final long serialVersionUID = 1L;
     private String message;
-    private Node sender;
-    private Node receiver;
+    private NodeServer sender;
+    private NodeServer receiver;
     private String dateTime;
+
+    private String type;
 
     /**
      * Constructs a new Message object with the specified message, sender, receiver, and date/time.
@@ -23,11 +25,12 @@ public class Message implements MessageInterface, Serializable {
      * @param receiver the receiver of the message
      * @param dateTime the date/time when the message was sent
      */
-    public Message(String message, Node sender, Node receiver, String dateTime) {
+    public Message(String message, NodeServer sender, NodeServer receiver, String dateTime, String type) {
         this.message = message;
         this.sender = sender;
         this.receiver = receiver;
         this.dateTime = dateTime;
+        this.type = type;
     }
 
     /**
@@ -46,7 +49,7 @@ public class Message implements MessageInterface, Serializable {
      * @return the sender of the message
      */
     @Override
-    public Node getSender() {
+    public NodeServer getSender() {
         return this.sender;
     }
 
@@ -56,7 +59,7 @@ public class Message implements MessageInterface, Serializable {
      * @return the receiver of the message
      */
     @Override
-    public Node getReceiver() {
+    public NodeServer getReceiver() {
         return this.receiver;
     }
 
@@ -86,7 +89,7 @@ public class Message implements MessageInterface, Serializable {
      * @param sender the new sender of the message
      */
     @Override
-    public void setSender(Node sender) {
+    public void setSender(NodeServer sender) {
         this.sender = sender;
     }
 
@@ -96,7 +99,7 @@ public class Message implements MessageInterface, Serializable {
      * @param receiver the new receiver of the message
      */
     @Override
-    public void setReceiver(Node receiver) {
+    public void setReceiver(NodeServer receiver) {
         this.receiver = receiver;
     }
 
@@ -108,5 +111,13 @@ public class Message implements MessageInterface, Serializable {
     @Override
     public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

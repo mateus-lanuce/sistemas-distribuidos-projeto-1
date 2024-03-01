@@ -1,14 +1,16 @@
 package Interfaces;
 
-import Model.Node;
+import Model.NodeServer;
 
 public interface MessageInterface {
     String getMessage();
-    Node getSender();
-    Node getReceiver();
+    NodeServer getSender();
+    NodeServer getReceiver();
     String getDateTime();
+    String getType();
     void setMessage(String message);
-    void setSender(Node sender);
-    void setReceiver(Node receiver);
+    void setSender(NodeServer sender);
+    void setReceiver(NodeServer receiver);
     void setDateTime(String dateTime);
+    void setType(String type);
 }
