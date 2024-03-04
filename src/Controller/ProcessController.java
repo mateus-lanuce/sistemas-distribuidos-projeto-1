@@ -19,7 +19,7 @@ public class ProcessController {
         this.server = server;
 
         //iniciar a thread do servidor
-        ServerTCPAnel serverImp = new ServerTCPAnel(server, nextNodeServer);
+        this.serverImp = new ServerTCPAnel(server, nextNodeServer);
         serverThread = new Thread(serverImp);
         serverThread.start();
 
